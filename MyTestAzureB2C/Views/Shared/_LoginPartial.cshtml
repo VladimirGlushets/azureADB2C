@@ -1,0 +1,30 @@
+﻿@using System.Security.Principal
+@if (User.Identity.IsAuthenticated)
+{
+    <ul class="nav navbar-nav">
+        <li class="navbar-text">Hello @User.Identity.Name</li>
+        <!-- The Account controller is not defined in this project. Instead, it is part of Microsoft.Identity.Web.UI nuget package and
+        it defines some well known actions such as SignUp/In, SignOut and EditProfile-->
+        <li class="navbar-nav">
+            <a class="nav-link text-white btn btn-primary" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="EditProfile">Edit Profile</a>
+
+            @*<form method="get" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="EditProfile">
+                <button type="submit" class="btn btn-primary" style="margin-right: 5px">Edit Profile</button>
+            </form>*@
+        </li>
+        <li class="navbar-nav">
+            <a class="nav-link text-white btn btn-primary" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Sign Out</a>
+            @*<form method="get" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">
+                <button type="submit" class="btn btn-primary">Sign Out</button>
+            </form>*@
+        </li>
+    </ul>
+}
+else
+{
+    <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Sign In</a>
+        </li>
+    </ul>
+}

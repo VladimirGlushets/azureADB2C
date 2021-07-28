@@ -1,0 +1,17 @@
+﻿@model List<WeatherForecast>
+
+@{
+    ViewData["Title"] = "Weather Forecast";
+}
+<h1>@ViewData["Title"]</h1>
+
+@{
+    foreach (WeatherForecast forecast in Model)
+    {
+        <p>@forecast.Date</p>
+        <p>@forecast.Summary</p>
+        <p>@forecast.TemperatureC</p>
+        <p>@forecast.TemperatureF</p>
+        <b></b>
+    }
+}
